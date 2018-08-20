@@ -1,0 +1,27 @@
+.container {
+    text-align: center;
+    margin-top: 30px;
+    min-height: 400px;
+    max-width: 350px;
+}
+
+form {
+    display: block;
+    text-align: center;
+}
+
+h2 {
+    padding: 15px 0 15px 0;
+}
+
+button {
+    height: 45px;
+    width: 80%;
+    margin-top: 2em;
+}
+
+.mat-form-field {
+    margin: 0 auto;
+    max-width: 500px;
+    display: block;
+}

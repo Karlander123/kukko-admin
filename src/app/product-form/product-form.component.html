@@ -1,0 +1,114 @@
+<!-- <mat-card class="example-card" *ngIf="product.title">
+  <img mat-card-image [src]="product.imageUrl" *ngIf="product.imageUrl">
+  <mat-card-content>
+    <h4> {{ product.title }} </h4>
+    <p>{{ product.price | currency:'USD':symbol }}</p>
+  </mat-card-content>
+</mat-card> -->
+
+<form #f="ngForm" (ngSubmit)="save(f.value)">
+    <mat-input-container>
+        <mat-placeholder>
+            <mat-icon>style</mat-icon> Title
+        </mat-placeholder>
+        <input [(ngModel)]="product.title" name="title" #title="ngModel" type="text" matInput required>
+    </mat-input-container>
+    <mat-input-container>
+        <mat-placeholder>
+            <mat-icon>attach_money</mat-icon> Price
+        </mat-placeholder>
+        <input [(ngModel)]="product.price" name="price" #price="ngModel" type="number" min="0" matInput required>
+    </mat-input-container>
+    <mat-form-field>
+        <mat-select [(ngModel)]="product.category" name="category" #category="ngModel" placeholder="Category" required>
+            <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+   <ng-template [ngIf]="product.category != 'Snacks'">
+        <mat-input-container>
+            <mat-placeholder>
+                <mat-icon>flag</mat-icon> Country
+            </mat-placeholder>
+            <input [(ngModel)]="product.country" name="country" #country="ngModel" type="text" matInput required>
+        </mat-input-container>
+        <mat-input-container>
+            <mat-placeholder>
+                <mat-icon>attach_money</mat-icon> Size
+            </mat-placeholder>
+            <input [(ngModel)]="product.size" name="size" #size="ngModel" type="number" min="0" matInput required>
+        </mat-input-container>
+        <mat-input-container>
+            <mat-placeholder>
+                <mat-icon>percentage</mat-icon> Alcohol(%)
+            </mat-placeholder>
+            <input [(ngModel)]="product.alc" name="alc" #price="ngModel" type="number" min="0" matInput required>
+        </mat-input-container>
+       
+            <ng-template [ngIf]="product.category == 'Beers'">
+                <mat-form-field>
+                    <mat-select [(ngModel)]="product.type" name="type" #type="ngModel" placeholder="Type" required>
+                            <mat-option *ngFor="let type of beer_types" [value]="type">{{ type.name }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <br>
+                <mat-checkbox [(ngModel)]="product.draft || draft_check" name="draft" #draft="ngModel">Draft</mat-checkbox>
+                <mat-checkbox [(ngModel)]="product.bottle || bottle_check" name="bottle" #bottle="ngModel">Bottle</mat-checkbox>
+                <mat-checkbox [(ngModel)]="product.glutenfree || gluten_check" name="glutenfree" #glutenfree="ngModel">Glutenfree</mat-checkbox>
+            </ng-template>
+            <ng-template [ngIf]="product.category == 'Ciders'">
+                <mat-form-field>
+                    <mat-select [(ngModel)]="product.type" name="type" #type="ngModel" placeholder="Type" required>
+                            <mat-option *ngFor="let type of cider_types" [value]="type">{{ type.name }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-select [(ngModel)]="product.taste" name="taste" #type="ngModel" placeholder="Taste" required>
+                            <mat-option *ngFor="let taste of tastes" [value]="taste">{{ taste.name }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </ng-template>
+            <ng-template [ngIf]="product.category == 'Whiskeys'">
+                <mat-form-field>
+                    <mat-select [(ngModel)]="product.type" name="type" #type="ngModel" placeholder="Type" required>
+                            <mat-option *ngFor="let type of whiskey_types" [value]="type">{{ type.name }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-select [(ngModel)]="product.year" name="year" #year="ngModel" placeholder="Year" required>
+                            <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </ng-template>
+            <ng-template [ngIf]="product.category == 'Rhum-Cognac'">
+                <mat-form-field>
+                    <mat-select [(ngModel)]="product.type" name="type" #type="ngModel" placeholder="Type" required>
+                            <mat-option *ngFor="let type of rhumCognac_types" [value]="type">{{ type.name }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </ng-template>
+    </ng-template>
+    
+        <!-- <mat-select [(ngModel)]="product.type" name="type" #type="ngModel" placeholder="Type" required>
+            <mat-option *ngFor="let type of types" [value]="type">{{ type }}</mat-option>
+        </mat-select>
+    </mat-form-field> -->
+    <!-- <div id="img">
+        <label for="uploadPicture">
+                <a mat-raised-button color="link">
+                    <mat-icon>add_a_photo</mat-icon>
+                    Select Photo
+                </a>
+             </label>
+        <mat-input-container>
+            <input for="uploadPicture" disabled [(ngModel)]="imgName" name="img" #img="ngModel" type="text" matInput required>
+        </mat-input-container>
+    </div>
+     <input hidden type="file"
+            id="uploadPicture"
+            class="hidden-input"
+            accept="image/jpeg, .jpeg, image/png, .png, image/pjpeg, .jpg"
+            (change)="selectFile($event.target.files[0])" required> -->
+    <button class="submit_btn" mat-raised-button color="primary" [disabled]="!f.valid">Save</button>
+    <button *ngIf="id" (click)="delete()" type="button" class="submit_btn" mat-raised-button color="warn">Delete</button>
+</form>
+

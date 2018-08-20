@@ -1,0 +1,17 @@
+<div class="mat-elevation-z6"  *ngIf="auth.user$ | async">
+    <nav mat-tab-nav-bar>
+        <a mat-tab-link
+        [matMenuTriggerFor]="menu"
+        >
+        <mat-icon>more_vert</mat-icon>
+      </a>
+      <mat-menu #menu="matMenu" yPosition="below" xPosition="before" [overlapTrigger]="false">
+            <mat-divider></mat-divider>
+            <a mat-menu-item [routerLink]="['/home']"><mat-icon>home</mat-icon>Home</a>
+            <mat-divider></mat-divider>
+            <a mat-menu-item [routerLink]="['/products']"><mat-icon>content_paste</mat-icon>Manage Products</a>
+            <mat-divider></mat-divider>
+            <a mat-menu-item (click)="logout()"><mat-icon>keyboard_return</mat-icon>Logout</a>
+      </mat-menu>
+      </nav>
+</div>

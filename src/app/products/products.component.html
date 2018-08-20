@@ -1,0 +1,160 @@
+<div class="container">
+        <button class="submit_btn" mat-raised-button color="accent" [routerLink]="['/products/new']">Add Product</button>
+        <mat-accordion>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Beers
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <ng-container>
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                  <th>Title</th>
+                                  <th>Price</th>
+                                  <th>Type</th>
+                                  <th>Edit</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <ng-container *ngFor="let p of beers$ | async">
+                                  <tr>
+                                      <td>{{ p.title }}</td>
+                                      <td>{{ p.price | currency:'USD':symbol }}</td>
+                                      <td>{{ p.type.name }}</td>
+                                      <td>
+                                        <a [routerLink]="['/products/','Beers', p.id]"><mat-icon>mode_edit</mat-icon></a>
+                                    </td>
+                                  </tr>
+                              </ng-container>
+                          </tbody>
+                        </table>
+                  </ng-container>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            Whiskeys
+                          </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ng-container>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Price</th>
+                                        <th>Type</th>
+                                        <th>Edit</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <ng-container *ngFor="let p of whiskeys$ | async">
+                                        <tr>
+                                            <td>{{ p.title }}</td>
+                                            <td>{{ p.price | currency:'USD':symbol }}</td>
+                                            <td>{{ p.type.name }}</td>
+                                            <td>
+                                                <a [routerLink]="['/products/','Whiskeys', p.id]"><mat-icon>mode_edit</mat-icon></a>
+                                            </td>
+                                        </tr>
+                                    </ng-container>
+                                </tbody>
+                              </table>
+                        </ng-container>
+                      </mat-expansion-panel>
+                      <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                              <mat-panel-title>
+                                Ciders
+                              </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ng-container>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Price</th>
+                                            <th>Type</th>
+                                            <th>Edit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <ng-container *ngFor="let p of ciders$ | async">
+                                            <tr>
+                                                <td>{{ p.title }}</td>
+                                                <td>{{ p.price | currency:'USD':symbol }}</td>
+                                                <td>{{ p.type.name }}</td>
+                                                <td>
+                                                    <a [routerLink]="['/products/','Ciders', p.id]"><mat-icon>mode_edit</mat-icon></a>
+                                                </td>
+                                            </tr>
+                                        </ng-container>
+                                    </tbody>
+                                  </table>
+                            </ng-container>
+                          </mat-expansion-panel>
+                          <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                              <mat-panel-title>
+                                Rhum & Cognac
+                              </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ng-container>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Price</th>
+                                            <th>Type</th>
+                                            <th>Edit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <ng-container *ngFor="let p of rhumCognac$ | async">
+                                            <tr>
+                                                <td>{{ p.title }}</td>
+                                                <td>{{ p.price | currency:'USD':symbol }}</td>
+                                                <td>{{ p.type.name }}</td>
+                                                <td>
+                                                    <a [routerLink]="['/products/','Rhum-Cognac', p.id]"><mat-icon>mode_edit</mat-icon></a>
+                                                </td>
+                                            </tr>
+                                        </ng-container>
+                                    </tbody>
+                                  </table>
+                            </ng-container>
+                          </mat-expansion-panel>
+                          <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                  <mat-panel-title>
+                                    Snacks
+                                  </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ng-container>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Title</th>
+                                                <th>Price</th>
+                                                <th>Edit</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <ng-container *ngFor="let p of snacks$ | async">
+                                                <tr>
+                                                    <td>{{ p.title }}</td>
+                                                    <td>{{ p.price | currency:'USD':symbol }}</td>
+                                                    <td>
+                                                        <a [routerLink]="['/products/','Snacks', p.id]"><mat-icon>mode_edit</mat-icon></a>
+                                                    </td>
+                                                </tr>
+                                            </ng-container>
+                                        </tbody>
+                                      </table>
+                                </ng-container>
+                              </mat-expansion-panel>
+              </mat-accordion>
+</div>
+
+

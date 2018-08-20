@@ -1,0 +1,13 @@
+<div class="mat-elevation-z6 container">
+    <h2>Login</h2>
+    <form #f="ngForm" (ngSubmit)="login(f)">
+        <mat-form-field class="example-full-width">
+            <input ngModel name="email" #email="ngModel" type="email" matInput placeholder="Email" required>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input ngModel name="password" #password="ngModel" type="password" matInput placeholder="Password" required>
+        </mat-form-field>
+        <button class="submit_btn" mat-raised-button color="primary" [disabled]="!f.valid">Log In</button>
+      </form>
+</div>
+

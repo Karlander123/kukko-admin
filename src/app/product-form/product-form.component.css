@@ -1,0 +1,58 @@
+.mat-form-field {
+    margin-top: 15px;
+    width: 100%; 
+    max-width: 400px;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+}
+
+select {
+    max-width: 400px;
+    margin-bottom: 25px;
+}
+
+.mat-card {
+    max-width: 300px;
+    margin: 0 0 1.5em 0;
+}
+
+.mat-card-image {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+form {
+    text-align: center;
+}
+
+.mat-card, button {
+    margin: 0 auto;
+}
+
+.submit_btn {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#img {
+    display: flex;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#img .mat-input-container {
+    margin: 0;
+    padding-left: 5px;
+}
+
+#img label {
+    margin: 0;
+}
